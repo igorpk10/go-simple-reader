@@ -31,7 +31,7 @@ func FetchLogs() {
 
 	logs := listReader.ReadFile(constants.LOGPATH)
 
-	fmt.Println("--- Start Logs --- \n")
+	fmt.Println("--- Start Logs --- ")
 
 	for _, text := range logs {
 		fmt.Println(text)

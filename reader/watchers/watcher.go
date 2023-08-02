@@ -1,4 +1,4 @@
-package view
+package watcher
 
 import (
 	"fmt"
@@ -13,12 +13,12 @@ func StartWatch() {
 
 	fmt.Println("--- Monitoring ---")
 	for _, site := range list {
-		startTest(site)
+		StartTest(site)
 	}
 	fmt.Println("--- End Monitor ---")
 }
 
-func startTest(site string) {
+func StartTest(site string) {
 	resp, err := http.Get(site)
 
 	if err != nil {

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"simplereader/reader/logger"
+	watcher "simplereader/reader/watchers"
 )
 
 func StartMenu() {
@@ -14,7 +15,8 @@ func StartMenu() {
 func showMenu() {
 	fmt.Println("0- Exit")
 	fmt.Println("1- Start monitor")
-	fmt.Println("2- Show Logs")
+	fmt.Println("2- Start buildable monitor")
+	fmt.Println("3- Show Logs")
 }
 
 func nextStep() {
@@ -37,13 +39,21 @@ func redirect(comand int) {
 	case 1:
 		redirectToWatch()
 	case 2:
+		redirectToUserWatch()
+	case 3:
 		redirectToLogs()
+	default:
+		os.Exit(0)
 	}
 
 }
 
 func redirectToWatch() {
-	StartWatch()
+	watcher.StartWatch()
+}
+
+func redirectToUserWatch() {
+	watcher.StartUserWatcher()
 }
 
 func redirectToLogs() {
